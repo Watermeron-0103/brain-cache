@@ -1,0 +1,4 @@
+faster-whisper
+pydub
+rich
+numpy
