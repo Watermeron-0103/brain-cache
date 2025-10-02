@@ -20,7 +20,7 @@
 
 Windows 環境で matplotlib を使って日本語を表示するには、日本語フォントを読み込むヘルパースクリプトを用意しておくと便利です。以下は `ja_font.py` の例です。
 
-```
+```python
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import os
@@ -68,7 +68,7 @@ def set_japanese_font(preferred=None, extra_paths=None):
 
 ### リストからの例
 
-```
+```python
 from datetime import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -124,7 +124,7 @@ CSV (`schedule.csv`) の例:
 
 読み込みと描画のコード:
 
-```
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
