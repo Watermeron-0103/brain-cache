@@ -64,4 +64,28 @@ Task,Start,DurationDays,Owner,Notes
 | メリット | 時間単位での粗い調整が可能 | 長期計画を簡潔に記述できる |
 | ファイル例 | `schedule_day.csv` | `schedule.csv` |
 
+
+## Python コード例・ガントチャート生成
+
+本リポジトリには、上記データ形式からガントチャートを生成する Python スクリプト [`generate_gantt.py`](./generate_gantt.py) が含まれています。  
+このスクリプトには以下の関数が実装されています。
+
+- **draw_single_day_gantt(csv_path, output_path)** – パターンA用。1日集中スケジュールに対応します。
+  `schedule_day.csv`などの CSV から 1日版ガントチャートを PNG 出力します。
+- **draw_multi_day_gantt(csv_path, output_path)** – パターンB用、日単位スケジュールに対応します。
+  `schedule.csv`などの CSV から複数日ガントチャートを PNG 出力します。
+
+### 使用例
+
+```python
+from generate_gantt import draw_single_day_gantt, draw_multi_day_gantt
+
+# 1日版ガントチャートを作成
+draw_single_day_gantt("schedule_day.csv", "single_day_gantt.png")
+
+# 日単位版ガントチャートを作成
+draw_multi_day_gantt("schedule.csv", "multi_day_gantt.png")
+```
+
+詳細なコードは [`generate_gantt.py`](./generate_gantt.py) を参照してください。
 この解説を参考に、用途に応じて適切なパターンを選んでガントチャートを作成してください。
