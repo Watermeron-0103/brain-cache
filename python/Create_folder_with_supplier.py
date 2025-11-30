@@ -15,6 +15,8 @@ for pdf_stem in BASE_DIR.rglob("*.pdf"):
 
     hit_code = None
     for code in 品目_list:
+        if not code:
+            continue
         if code in file_stem:
             hit_code = code
             break
