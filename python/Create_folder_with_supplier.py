@@ -12,7 +12,7 @@ code_to_dir: dict[str, Path] = {}
 
 for pdf_stem in BASE_DIR.rglob("*.pdf"):
     file_stem = pdf_stem.stem
-
+    
     hit_code = None
     for code in 品目_list:
         if not code:
@@ -20,24 +20,25 @@ for pdf_stem in BASE_DIR.rglob("*.pdf"):
         if code in file_stem:
             hit_code = code
             break
-
+        
     if hit_code is None:
-        print(f"未登録品目コード: {file_stem}")
+        print(f"Not found: {file_stem}")
         continue
-
+    
     if hit_code in code_to_dir:
         dest_dir = code_to_dir[hit_code]
     else:
         dest_dir = BASE_DIR / hit_code
         dest_dir.mkdir(parents=True, exist_ok=True)
         code_to_dir[hit_code] = dest_dir
-
+        
     dest_path = dest_dir / pdf_stem.name
-    print("移動予定:")
-    print("  元:", pdf_stem)
-    print("  新:", dest_path)
+    print(f"Moving: {pdf_stem} -> {dest_path}")
+    
     if dest_path.exists():
-        print("  → 既に存在するためスキップ")
+        print(f"Already exists, skipping: {dest_path}")
         continue
+
     pdf_stem.rename(dest_path)
-    print("  → 移動完了")
+    print(f"Moved: {pdf_stem} -> {dest_path}")
+print("Done.")
