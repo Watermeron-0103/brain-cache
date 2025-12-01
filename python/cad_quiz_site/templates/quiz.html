@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>CAD 基礎 練習問題</title>
+</head>
+<body>
+  <h1>CAD 基礎 練習問題ロビー</h1>
+
+  {%- if result is not none -%}
+    {%- if result -%}
+      <p style="color: green;">✅ 正解！</p>
+    {%- else -%}
+      <p style="color: red;">❌ 不正解…</p>
+      <p>あなたの回答: {{ user_answer }}</p>
+      <p>解説: {{ question.explain }}</p>
+    {%- endif -%}
+    <hr>
+
+    <!-- Button to fetch a new question by reloading the quiz page -->
+    <form method="get" action="/">
+      <button type="submit">次の問題へ</button>
+    </form>
+    <hr>
+  {%- endif -%}
+
+  <!-- Display the current question -->
+  <p>{{ question.question }}</p>
+
+  <!-- Form for submitting an answer -->
+  <form method="post">
+    <input type="hidden" name="q_index" value="{{ q_index }}">
+
+    <label>
+      <input type="radio" name="answer" value="y" required> y（はい / 正しい）
+    </label><br>
+    <label>
+      <input type="radio" name="answer" value="n"> n（いいえ / 誤り）
+    </label><br><br>
+
+    <button type="submit">回答する</button>
+  </form>
+
+  <hr>
+  <p>※ ブラウザの再読み込み = 別の問題にランダムテレポ。</p>
+</body>
+</html>
