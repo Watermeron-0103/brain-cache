@@ -4,7 +4,7 @@ import pandas as pd
 import xlsxwriter
 
 # ===== パス設定 =====
-SRC_PATH = Path("src/治具検討_ガントチャート.xlsx")
+SRC_PATH = Path("src/治具検討_gantt_chart.xlsx")
 OUT_PATH = Path("out/治具検討_ガントチャート_スケジュールビュー.xlsx")
 SHEET_NAME = "ガント"
 
