@@ -80,7 +80,7 @@ def quiz(category: str | None):
         correct = (user_answer == question["answer"])
 
         return render_template(
-            "quiz.html",
+            "quiz_csv.html",
             question=question,
             q_index=q_index,
             result=correct,
